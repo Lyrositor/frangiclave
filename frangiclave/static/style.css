@@ -62,9 +62,10 @@ header a {
     background: linear-gradient(#924cb7, #603888);
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-    color: #2b1a2b;
+    color: #ece0ec;
     cursor: pointer;
     font-weight: bold;
+    letter-spacing: 1px;
     padding: 0.2em 0.4em;
 }
 
@@ -178,6 +179,10 @@ h1 {
     cursor: pointer;
 }
 
+#section-item-active {
+    background-color: #cfb8d0;
+}
+
 #content {
     background-color: #ffffff;
     box-shadow: -5px 0 10px -5px #b1a6b7;
@@ -213,6 +218,7 @@ footer {
     font-style: italic;
     padding: 1.6em;
     text-align: center;
+    text-shadow: 0 0 2px #ffffff;
 }
 
 /* Content Styling */
@@ -255,6 +261,7 @@ footer {
 #content h3 {
     border-left: solid 0.2em #866a86;
     border-top: solid 0.1em #866a86;
+    margin: 0.1em 0;
     padding: 0.2em 0.3em;
 }
 
@@ -285,4 +292,15 @@ footer {
     margin-bottom: 1em;
     margin-left: 1em;
     margin-top: 1em;
+}
+
+/* Search results */
+#content .search-result {
+    background-color: #fffaff;
+    border-left: solid 0.2em #866a86;
+    margin: 1em 0;
+}
+
+#content .search-result-title {
+    border: none;
 }

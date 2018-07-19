@@ -118,6 +118,7 @@ class Recipe(Base, GameContentMixin):
         'RecipeSlotSpecification', back_populates='recipe'
     )
     signal_important_loop: bool = Column(Boolean)
+    comments: Optional[str] = Column(String, nullable=True)
 
     @classmethod
     def from_data(

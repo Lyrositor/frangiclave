@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Dict, List
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import Session, relationship
@@ -25,6 +25,7 @@ class Legacy(Base, GameContentMixin):
     from_ending: str = Column(String)
     available_without_ending_match: bool = Column(Boolean)
     effects: List['LegacyEffect'] = relationship('LegacyEffect')
+    comments: Optional[str] = Column(String, nullable=True)
 
     @classmethod
     def from_data(

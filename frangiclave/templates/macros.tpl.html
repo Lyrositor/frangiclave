@@ -37,7 +37,7 @@
 </ul>
 {%- endmacro %}
 
-{% macro file_list(files, category, read_only, prefix) -%}
+{% macro file_list(files, category, read_only, prefix, path) -%}
 {% for file, entries in files[category].items() %}
 <div class="section-file">
     <div class="section-file-title">
@@ -51,7 +51,7 @@
         {{ file.name }} ({{ file.group.value }})
     </div>
     {% for entry in entries %}
-    <a class="section-item" href="/{{ prefix }}/{{ entry }}/">{{ entry }}</a>
+    <a class="section-item" href="/{{ prefix }}/{{ entry }}/" {% if path == '/' + prefix + '/' + entry + '/'%}id="section-item-active"{% endif %}>{{ entry }}</a>
     {% endfor %}
 </div>
 {% endfor %}

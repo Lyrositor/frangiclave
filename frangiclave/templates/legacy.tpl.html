@@ -20,9 +20,9 @@
 
 <p><strong>Label:</strong> {{ m.optional(legacy.label) }}</p>
 
-<p><strong>Start Description:</strong> {{ m.optional(legacy.start_description) }}</p>
+<p><strong>Start Description:</strong> {{ m.multiline(m.optional(legacy.start_description|safe)) }}</p>
 
-<p><strong>Description:</strong> {{ m.optional(legacy.description) }}</p>
+<p><strong>Description:</strong> {{ m.multiline(m.optional(legacy.description|safe)) }}</p>
 
 <p><strong>From Ending:</strong> {{ legacy.from_ending }}</p>
 

@@ -23,7 +23,7 @@
 <body>
 <header>
     <form id="search-box" action="/search/" method="get">
-        <input type="search" title="search" id="search-text" /><input type="submit" id="search-submit" value="Search" />
+        <input type="search" title="search" id="search-text" name="keywords" value="{{ keywords }}"/><input type="submit" id="search-submit" value="Search" />
     </form>
 
     <a href="/">
@@ -42,28 +42,28 @@
         <div id="sections">
             <div class="section-title">Decks</div>
             <div class="section-list" style="display: {{ 'block' if show_decks else 'none' }};">
-                {{ m.file_list(files, 'decks', read_only, 'deck') }}
+                {{ m.file_list(files, 'decks', read_only, 'deck', path) }}
             </div>
             <div class="section-title">Elements</div>
             <div class="section-list" style="display: {{ 'block' if show_elements else 'none' }};">
-                {{ m.file_list(files, 'elements', read_only, 'element') }}
+                {{ m.file_list(files, 'elements', read_only, 'element', path) }}
             </div>
             <div class="section-title">Legacies</div>
             <div class="section-list" style="display: {{ 'block' if show_legacies else 'none' }};">
-                {{ m.file_list(files, 'legacies', read_only, 'legacy') }}
+                {{ m.file_list(files, 'legacies', read_only, 'legacy', path) }}
             </div>
             <div class="section-title">Recipes</div>
             <div class="section-list" style="display: {{ 'block' if show_recipes else 'none' }};">
-                {{ m.file_list(files, 'recipes', read_only, 'recipe') }}
+                {{ m.file_list(files, 'recipes', read_only, 'recipe', path) }}
             </div>
             <div class="section-title">Verbs</div>
             <div class="section-list" style="display: {{ 'block' if show_verbs else 'none' }};">
-                {{ m.file_list(files, 'verbs', read_only, 'verb') }}
+                {{ m.file_list(files, 'verbs', read_only, 'verb', path) }}
             </div>
         </div>
     </div>
     <div id="content">{% block content %}Content{% endblock %}</div>
 </div>
-<footer>Version 1.0.0</footer>
+<footer>Cultist Simulator is the sole property of Weather Factory. All rights reserved.<br />All game content on this website, including images and text, is used with permission.</footer>
 </body>
 </html>

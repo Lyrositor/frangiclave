@@ -20,7 +20,7 @@
 
 <p><strong>Label:</strong> {{ m.optional(verb.label) }}</p>
 
-<p><strong>Description:</strong> {{ m.multiline(m.optional(verb.description)) }}</p>
+<p><strong>Description:</strong> {{ m.multiline(m.optional(verb.description|safe)) }}</p>
 
 <p><strong>At Start?</strong> {{ m.yes_no(verb.at_start) }}</p>
 

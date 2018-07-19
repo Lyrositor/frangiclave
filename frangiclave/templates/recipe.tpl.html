@@ -22,9 +22,9 @@
 
 <p><strong>Label:</strong> {{ m.optional(recipe.label) }}</p>
 
-<p><strong>Start Description:</strong> {{ m.optional(recipe.start_description) }}</p>
+<p><strong>Start Description:</strong> {{ m.multiline(m.optional(recipe.start_description|safe)) }}</p>
 
-<p><strong>Description:</strong> {{ m.optional(recipe.description) }}</p>
+<p><strong>Description:</strong> {{ m.multiline(m.optional(recipe.description|safe)) }}</p>
 
 <p><strong>Action:</strong> {% if recipe.action_id %}{{ m.verb(recipe.action.verb_id) }}{% else %}<em>None</em>{% endif %}</p>
 

@@ -1,7 +1,7 @@
 from collections import OrderedDict, defaultdict
 from os.path import abspath, dirname, join
 
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
 from sqlalchemy.orm.exc import NoResultFound
 
 from frangiclave.compendium.base import get_session
@@ -12,6 +12,7 @@ from frangiclave.compendium.legacy import Legacy
 from frangiclave.compendium.recipe import Recipe
 from frangiclave.compendium.verb import Verb
 from frangiclave.game.importer import import_game_data
+from frangiclave.search import search_compendium
 
 ROOT_DIR = abspath(dirname(__file__))
 STATIC_DIR = join(ROOT_DIR, 'static')
@@ -53,6 +54,18 @@ def file_edit():
 @app.route('/file_delete/', methods=['POST'])
 def file_delete():
     pass
+
+
+@app.route('/search/')
+def search():
+    keywords = request.args.get('keywords', '')
+    with get_session() as session:
+        results = search_compendium(session, keywords)
+        return render_template(
+            'search.tpl.html',
+            keywords=keywords,
+            results=results
+        )
 
 
 @app.route('/deck/<string:deck_id>/')
@@ -152,6 +165,7 @@ def add_global_variables():
             ]
         session.expunge_all()
     return dict(
+        path=request.path,
         files=files,
         read_only=app.config['READ_ONLY'],
         decks_open=False,
