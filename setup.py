@@ -5,7 +5,7 @@ import os
 
 from setuptools import find_packages, setup
 
-from ._version import __version__
+from _version import __version__
 
 REQUIRED = [
     'flask',
